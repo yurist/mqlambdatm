@@ -29,7 +29,7 @@ func main() {
 
 	qMgr, mqreturn, err := ibmmq.Conn(qMgrName)
 	if err != nil {
-		fmt.Println("Error connecting to queue manager %v", mqreturn.MQRC)
+		fmt.Printf("Error connecting to queue manager %v", mqreturn.MQRC)
 		os.Exit(1)
 	}
 
@@ -45,7 +45,7 @@ func main() {
 	qObj, mqreturn, err := qMgr.Open(mqod, openOpts)
 
 	if err != nil {
-		fmt.Println("Error opening initiation queue %v %v", initQ, mqreturn.MQRC)
+		fmt.Printf("Error opening initiation queue %v %v", initQ, mqreturn.MQRC)
 		os.Exit(1)
 	}
 
