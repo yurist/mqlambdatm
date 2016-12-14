@@ -2,8 +2,8 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"github.com/ibm-messaging/mq-golang/ibmmq"
+	"log"
 	"os"
 	"strings"
 )
@@ -20,16 +20,16 @@ func init() {
 
 func main() {
 
-	fmt.Println("MQ trigger monitor for AWS Lambda")
+	log.Println("MQ trigger monitor for AWS Lambda")
 
 	if initQ == "" {
-		fmt.Println("-q parameter missing")
+		log.Println("-q parameter missing")
 		os.Exit(1)
 	}
 
 	qMgr, mqreturn, err := ibmmq.Conn(qMgrName)
 	if err != nil {
-		fmt.Printf("Error connecting to queue manager %v", mqreturn.MQRC)
+		log.Printf("Error connecting to queue manager %v", mqreturn.MQRC)
 		os.Exit(1)
 	}
 
@@ -45,7 +45,7 @@ func main() {
 	qObj, mqreturn, err := qMgr.Open(mqod, openOpts)
 
 	if err != nil {
-		fmt.Printf("Error opening initiation queue %v %v", initQ, mqreturn.MQRC)
+		log.Printf("Error opening initiation queue %v %v", initQ, mqreturn.MQRC)
 		os.Exit(1)
 	}
 
@@ -71,24 +71,23 @@ func main() {
 		datalen, mqreturn, err := qObj.Get(md, gmo, msg)
 
 		if err != nil {
-			fmt.Printf("Error getting a message off queue %v %v\n", initQ, mqreturn.MQRC)
+			log.Printf("Error getting a message off queue %v %v\n", initQ, mqreturn.MQRC)
 			os.Exit(1)
 		}
 
 		if datalen != 684 {
-			fmt.Println("Invalid message received, skipping (wrong length)")
+			log.Println("Invalid message received, skipping (wrong length)")
 			continue
 		}
 
 		tm := TMfromC(msg)
 
 		if tm.StrucId != "TM  " {
-			fmt.Println("Invalid message received, skipping (wrong StrucId)")
+			log.Println("Invalid message received, skipping (wrong StrucId)")
 		}
 
-		fmt.Printf("msg %v\n", tm)
+		log.Printf("msg %v\n", tm)
 
 		lambdaCall(strings.TrimSpace(tm.ApplId), tm)
 	}
-
 }
