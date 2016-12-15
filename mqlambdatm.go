@@ -144,6 +144,7 @@ func main() {
 			"TM": tm,
 		}).Debug("trigger message received")
 
+		// Ignoring any error, lambdaCall is logging its errors
 		lambdaCall(strings.TrimSpace(tm.ApplId), tm)
 	}
 }
