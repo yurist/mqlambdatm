@@ -11,10 +11,12 @@ package main
 import "C"
 
 import (
-	// "bytes"
 	"unsafe"
 )
 
+// MQTM struct defines Go mapping of C MQTM struct
+// JSON annotations are required so that the marshalled JSON object can be deserialized
+// as a Java bean - capitalized field names do not work
 type MQTM struct {
 	StrucId     string `json:"strucId"`
 	Version     int32  `json:"version"`
@@ -27,6 +29,7 @@ type MQTM struct {
 	UserData    string `json:"userData"`
 }
 
+// TMfromC function converts C MQTM buffer into Go MQTM struct
 func TMfromC(buffer []byte) (gotm MQTM) {
 
 	mqtm := (C.PMQTM)(unsafe.Pointer(&buffer[0]))
