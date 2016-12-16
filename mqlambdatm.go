@@ -48,7 +48,7 @@ var qMgrName string
 
 func init() {
 	flag.StringVar(&initQ, "q", "", "initiation queue to serve")
-	flag.StringVar(&qMgrName, "m", "", "queue manager to connect, default queue manager if not given)")
+	flag.StringVar(&qMgrName, "m", "", "queue manager to connect, default queue manager if not given")
 	sLogLevel := flag.String("log-level", "info", "log level (DEBUG, INFO, WARN, ERROR, FATAL, PANIC)")
 
 	flag.Parse()
@@ -70,6 +70,11 @@ func main() {
 	if initQ == "" {
 		log.Fatalln("-q parameter missing")
 	}
+
+	log.WithFields(log.Fields{
+		"INITQ": initQ,
+		"QMGR":  qMgrName,
+	}).Info("parameters")
 
 	qMgr, mqreturn, err := ibmmq.Conn(qMgrName)
 	if err != nil {
