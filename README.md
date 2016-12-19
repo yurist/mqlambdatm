@@ -12,11 +12,11 @@ This document currently does not provide explanations on IBM MQ triggering mecha
 
 All the development and testing has been done on Linux (Ubuntu 14.04 through 16.04 as well as latest Amazon Linux.)
 
-# Obtaining MQ Trigger Monitor for AWS Lambda
+# Obtaining Trigger Monitor for IBM MQ and AWS Lambda
 
 Download the latest release [here](https://github.com/yurist/mqlambdatm/releases/latest). Download `mqlambdatm.tar.gz` and unzip it using `tar -xvf`. Copy the executable `mqlambdatm` to any directory according to your conventions.
 
-# Running MQ Trigger Monitor for AWS Lambda.
+# Running 
 
     Usage of mqlambdatm:
     -log-level string
