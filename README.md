@@ -26,7 +26,7 @@ Download the latest release [here](https://github.com/yurist/mqlambdatm/releases
     -q string
             initiation queue to serve
 
-The recommended way of running trigger monitors is by using MQ services, see [example configuration](https://github.com/yurist/mqlambdatm-demo/blob/master/demo/cloud-init/docker/config.mqsc) in MQ Lambda Trigger Monitor sample repository.
+The recommended way of running trigger monitors is by using MQ services, see [example configuration](https://github.com/yurist/mqlambdatm-demo/blob/master/demo/cloud-init/docker/config.mqsc#L27-L36) in MQ Lambda Trigger Monitor sample repository.
 
 # Building from sources
 
