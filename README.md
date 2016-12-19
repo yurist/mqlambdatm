@@ -12,9 +12,25 @@ This document currently does not provide explanations on IBM MQ triggering mecha
 
 # Obtaining MQ Trigger Monitor for AWS Lambda
 
-You need Go development environment installed. See [here](https://golang.org/doc/install) for the details. (You don't need anything besides MQ Server installation to run `mqlambdatm`, but since it is not distributed in binary form you need to build it first.)
+Download latest release [here](https://github.com/yurist/mqlambdatm/releases/latest). Download `mqlambdatm.tar.gz` and unzip it using `tar -xvf`. Copy the executable `mqlambdatm` to any directory according to your conventions.
 
-The provided instructions are for Linux. There is no reason it shouldn't work on Windows but it hasn't been tested.
+# Running MQ Trigger Monitor for AWS Lambda.
+
+    Usage of mqlambdatm:
+    -log-level string
+            log level (DEBUG, INFO, WARN, ERROR, FATAL, PANIC) (default "info")
+    -m string
+            queue manager to connect, default queue manager if not given
+    -q string
+            initiation queue to serve
+
+The recommended way of running trigger monitors is by using MQ services, see [example configuration](https://github.com/yurist/mqlambdatm-demo/blob/master/demo/cloud-init/docker/config.mqsc) in MQ Lambda Trigger Monitor sample repository.
+
+# Building from sources
+
+The machine for building `mqlambdatm` must have IBM MQ SDK installed in the default location.
+
+You need Go development environment. See [here](https://golang.org/doc/install) for the details. You also need `gcc` compiler.
 
 After installing Go tools and setting the environment variables, run
 
@@ -24,14 +40,14 @@ go get github.com/yurist/mqlambdatm
 
 You will find `mqlambdatm` executable in $GOPATH/bin.
 
-# Configuring and running
-
-TBD - sample
-
 # Developing Lambda functions for use with MQ triggering
 
-TBD - sample
+See [MQ Lambda Trigger Monitor Sample project](https://github.com/yurist/mqlambdatm-demo) for a complete sample.
+
+# Support
+
+I will be glad to provide clarifications and fixes on the best effort basis. Please [open an issue](https://github.com/yurist/mqlambdatm/issues) if you need help.
 
 # License
 
-Apache License v.2.0
+[Apache License, Version 2.0](http://apache.org/licenses/LICENSE-2.0.html)
