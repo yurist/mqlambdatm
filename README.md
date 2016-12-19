@@ -14,7 +14,7 @@ All the development and testing has been done on Linux (Ubuntu 14.04 through 16.
 
 # Obtaining Trigger Monitor for IBM MQ and AWS Lambda
 
-Download the latest release [here](https://github.com/yurist/mqlambdatm/releases/latest). Download `mqlambdatm.tar.gz` and unzip it using `tar -xvf`. Copy the executable `mqlambdatm` to any directory according to your conventions.
+Download the latest release [here](https://github.com/yurist/mqlambdatm/releases/latest). Download `mqlambdatm.tar.gz` and unzip it using `tar -zxvf`. Copy the executable `mqlambdatm` to any directory according to your conventions.
 
 # Running 
 
