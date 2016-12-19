@@ -48,6 +48,16 @@ See [MQ Lambda Trigger Monitor Sample project](https://github.com/yurist/mqlambd
 
 *Note:* Only Lambda functions in Java have been tested. Other languages require IBM MQ native clients, which are way more difficult to run in the (mostly undocumented) Lambda container environment. Also, getting IBM support for such a configuration will be probably hard if not impossible. The Java clients on the other hand do not presume virtually anything about the environment and can be run anywhere JVM is supported. (This should not be construed as a formal support statement which I'm not in a position to provide for IBM anyway. Clarify with IBM support what their position is regarding containers, Lambda and MQ Java clients if you need such a formal statement.)
 
+# Use of IBM software
+
+This project uses open source [IBM library](https://github.com/ibm-messaging/mq-golang) that provides Go MQI support. Other than that, no IBM licensed software is incorporated in this repository. To use this project, as well as the accompanying [sample project](https://github.com/yurist/mqlambdatm-demo), you need to acquire necessary licenses for IBM MQ server and clients.
+
+# Legalese
+
+This is my personal open source contribution, unrelated to any other party, including IBM and Amazon. It is provided in good faith, in the hope of being useful, but with no warranty of any kind whatsoever.
+
+The product names and other terms in this document and in the source code may be trademarks of IBM, Amazon or other parties. All such usage is acknowledged.
+
 # Support
 
 I will be glad to provide clarifications and fixes on the best effort basis. Please [open an issue](https://github.com/yurist/mqlambdatm/issues) if you need help.
