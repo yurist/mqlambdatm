@@ -10,6 +10,8 @@ A broad view of a possible deployment of MQ Trigger Monitor for AWS Lambda:
 
 This document currently does not provide explanations on IBM MQ triggering mechanism. You can find them in [IBM MQ documentation on triggering](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.dev.doc/q026910_.htm)
 
+All the development and testing has been done on Linux (Ubuntu 14.04 through 16.04 as well as latest Amazon Linux.)
+
 # Obtaining MQ Trigger Monitor for AWS Lambda
 
 Download latest release [here](https://github.com/yurist/mqlambdatm/releases/latest). Download `mqlambdatm.tar.gz` and unzip it using `tar -xvf`. Copy the executable `mqlambdatm` to any directory according to your conventions.
