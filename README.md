@@ -46,6 +46,8 @@ You will find `mqlambdatm` executable in $GOPATH/bin.
 
 See [MQ Lambda Trigger Monitor Sample project](https://github.com/yurist/mqlambdatm-demo) for a complete sample.
 
+*Note:* Only Lambda functions in Java have been tested. Other languages require IBM MQ native clients, which are way more difficult to run in the (mostly undocumented) Lambda container environment. Also, getting IBM support for such a configuration will be probably hard if not impossible. The Java clients on the other hand do not presume virtually anything about the environment and can be run anywhere JVM is supported. (This should not be construed as a formal support statement which I'm not in a position to provide for IBM anyway. Clarify with IBM support what their position is regarding containers, Lambda and MQ Java clients if you need such a formal statement.)
+
 # Support
 
 I will be glad to provide clarifications and fixes on the best effort basis. Please [open an issue](https://github.com/yurist/mqlambdatm/issues) if you need help.
