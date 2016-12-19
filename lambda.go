@@ -39,7 +39,7 @@ func lambdaCall(lambdaName string, tm MQTM) error {
 
 	log.WithFields(log.Fields{
 		"NAME":    lambdaName,
-		"PAYLOAD": payload,
+		"PAYLOAD": string(payload),
 	}).Debug("about to invoke Lambda")
 
 	params := &lambda.InvokeInput{
