@@ -65,7 +65,7 @@ func init() {
 
 func main() {
 
-	log.Infoln("MQ trigger monitor for AWS Lambda")
+	log.Infoln("MQ trigger monitor for AWS Lambda v0.0.2")
 
 	if initQ == "" {
 		log.Fatalln("-q parameter missing")
@@ -76,8 +76,9 @@ func main() {
 		"QMGR":  qMgrName,
 	}).Info("parameters")
 
-	qMgr, mqreturn, err := ibmmq.Conn(qMgrName)
+	qMgr, err := ibmmq.Conn(qMgrName)
 	if err != nil {
+		mqreturn := err.(*ibmmq.MQReturn)
 		log.WithFields(log.Fields{
 			"MQRC": mqreturn.MQRC,
 		}).Fatal("error connecting to queue manager")
@@ -92,9 +93,10 @@ func main() {
 
 	var openOpts int32 = ibmmq.MQOO_INPUT_AS_Q_DEF + ibmmq.MQOO_FAIL_IF_QUIESCING
 
-	qObj, mqreturn, err := qMgr.Open(mqod, openOpts)
+	qObj, err := qMgr.Open(mqod, openOpts)
 
 	if err != nil {
+		mqreturn := err.(*ibmmq.MQReturn)
 		log.WithFields(log.Fields{
 			"INITQ": initQ,
 			"MQRC":  mqreturn.MQRC,
@@ -124,9 +126,10 @@ func main() {
 	msg := make([]byte, mqtm_length)
 
 	for {
-		datalen, mqreturn, err := qObj.Get(md, gmo, msg)
+		datalen, err := qObj.Get(md, gmo, msg)
 
 		if err != nil {
+			mqreturn := err.(*ibmmq.MQReturn)
 			log.WithFields(log.Fields{
 				"INITQ": initQ,
 				"MQRC":  mqreturn.MQRC,
