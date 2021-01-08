@@ -10,7 +10,7 @@ A broad view of a possible deployment of MQ Trigger Monitor for AWS Lambda:
 
 This document currently does not provide explanations on IBM MQ triggering mechanism. You can find them in [IBM MQ documentation on triggering](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.dev.doc/q026910_.htm)
 
-All the development and testing has been done on Linux. There are no specific distribution or version dependencies besides the gclib version. Check the latest release regarding which version of gclib it was built on, and whether it is compatible with the Linux kernel and gclib you need it to run on. You can build the executable yourself from the sources on the necessary Linux level, see below. Check out [this container](https://gitbub.com/yurist/mqgobuild_container) as an basis or example of doing it in a Docker container.
+All the development and testing has been done on Linux. There are no specific distribution or version dependencies besides the gclib version. Check the latest release regarding which version of gclib it was built on, and whether it is compatible with the Linux kernel and gclib you need it to run on. You can build the executable yourself from the sources on the necessary Linux level, see below. Check out [this container](https://github.com/yurist/mqgobuild_container) as an basis or example of doing it in a Docker container.
 
 # Obtaining Trigger Monitor for IBM MQ and AWS Lambda
 
