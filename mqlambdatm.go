@@ -65,7 +65,7 @@ func init() {
 
 func main() {
 
-	log.Infoln("MQ trigger monitor for AWS Lambda v0.0.2")
+	log.Infoln("MQ trigger monitor for AWS Lambda v0.0.3")
 
 	if initQ == "" {
 		log.Fatalln("-q parameter missing")
